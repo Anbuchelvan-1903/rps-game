@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Rock-paper-scissors game</title>
+</head>
+<body>
+	<button onclick="playGame('rock')">Rock</button>
+	<button onclick="playGame('paper')">paper</button>
+	<button onclick="playGame('scissors')">Scissors</button>
+  <button onclick="reset()
+  ">Reset</button>
+	<script>
+    const score = JSON.parse(localStorage.getItem('score')) || {
+      wins: 0,
+      losses: 0,
+      ties: 0
+    };
+    
+		function randomMove(){
+      const move = ['rock','paper','scissors'];
+      return move[Math.floor(Math.random() * 3)];
+    }
+    function playGame(playerMove) {
+      const computerMove= randomMove();
+      let result;
+
+      // Decide result
+      if (playerMove === computerMove) {
+        result = 'Tie';
+      } else if (
+        (playerMove === 'rock' && computerMove === 'scissors') ||
+        (playerMove === 'paper' && computerMove === 'rock') ||
+        (playerMove === 'scissors' && computerMove === 'paper')
+      ) {
+        result = 'You win';
+      } else {
+        result = 'You lose';
+      }
+      
+      if (result==='Tie'){
+        score.ties++;
+      }
+      else if (result==='You win'){
+        score.wins++;
+      }
+      else{
+        score.losses++;
+      }
+      localStorage.setItem('score', JSON.stringify(score));
+
+      alert(
+        `You chose ${playerMove}. Computer chose ${computerMove}. ${result}.\nWins: ${score.wins} losses: ${score.losses} ties: ${score.ties} `
+      );
+      console.log(score);
+    }
+    function reset(){
+      score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        localStorage.removeItem('score');
+        console.log('Score has been reset')
+    }
+  </script>
+</body>
+</html>
