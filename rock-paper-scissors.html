@@ -1,67 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Rock-paper-scissors game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock-paper-scissors game</title>
+  <link rel="stylesheet" href="rock-paper-scissors.css">
+  <style>
+
+  </style>
 </head>
+
 <body>
-	<button onclick="playGame('rock')">Rock</button>
-	<button onclick="playGame('paper')">paper</button>
-	<button onclick="playGame('scissors')">Scissors</button>
-  <button onclick="reset()
-  ">Reset</button>
-	<script>
-    const score = JSON.parse(localStorage.getItem('score')) || {
-      wins: 0,
-      losses: 0,
-      ties: 0
-    };
+  <h1>Rock Paper Scissors</h1>
+  <div class="container">
+    <p class="result style-p"></p>
+    <p class="moves style-p "></p>
+    <p class="score style-p"></p>
+    <div class="action">
+      <button onclick="playGame('rock')"><img class="action-icon" src="assets/rock.png"></button>
+
+      <button onclick="playGame('paper')"><img class="action-icon" src="assets/paper.png"></button>
+
+      <button onclick="playGame('scissors')"><img class="action-icon" src="assets/scissors.png"></button>
+    </div>
+
+   
+    <button class="reset-btn" onclick="reset()">Reset</button>
     
-		function randomMove(){
-      const move = ['rock','paper','scissors'];
-      return move[Math.floor(Math.random() * 3)];
-    }
-    function playGame(playerMove) {
-      const computerMove= randomMove();
-      let result;
+  </div>
+   
 
-      // Decide result
-      if (playerMove === computerMove) {
-        result = 'Tie';
-      } else if (
-        (playerMove === 'rock' && computerMove === 'scissors') ||
-        (playerMove === 'paper' && computerMove === 'rock') ||
-        (playerMove === 'scissors' && computerMove === 'paper')
-      ) {
-        result = 'You win';
-      } else {
-        result = 'You lose';
-      }
-      
-      if (result==='Tie'){
-        score.ties++;
-      }
-      else if (result==='You win'){
-        score.wins++;
-      }
-      else{
-        score.losses++;
-      }
-      localStorage.setItem('score', JSON.stringify(score));
 
-      alert(
-        `You chose ${playerMove}. Computer chose ${computerMove}. ${result}.\nWins: ${score.wins} losses: ${score.losses} ties: ${score.ties} `
-      );
-      console.log(score);
-    }
-    function reset(){
-      score.wins = 0;
-        score.losses = 0;
-        score.ties = 0;
-        localStorage.removeItem('score');
-        console.log('Score has been reset')
-    }
-  </script>
+  <script src="rock-paper-scissors.js"></script>
 </body>
+
 </html>
