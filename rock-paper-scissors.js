@@ -6,9 +6,9 @@ const score = JSON.parse(localStorage.getItem('score')) || {
 };
 
 // Initialize UI elements with default message
-document.querySelector('.result').innerHTML = 'waiting for the game to begin';
-document.querySelector('.score').innerHTML = 'waiting for the game to begin';
-document.querySelector('.moves').innerHTML = 'waiting for the game to begin';
+document.querySelector('.result').innerHTML = 'Let\'s play ';
+document.querySelector('.moves').innerHTML = ` You <img title="Your-move" class="move-icon" src="assets/question-mark.png">  <img title="Computer-move" class="move-icon" src="assets/question-mark.png"> Computer`;
+document.querySelector('.score').innerHTML = `Wins: ${score.wins} Losses: ${score.losses}  Ties: ${score.ties}`;
 
 // Generate a random move (rock, paper, or scissors) for the computer
 function randomMove() {
@@ -50,8 +50,9 @@ function playGame(playerMove) {
 
   // Update the webpage with the result, moves, and current score
   document.querySelector('.result').innerHTML = result;
-  document.querySelector('.moves').innerHTML = ` You <img class="move-icon" src="/assets/${playerMove}.png">  <img class="move-icon" src="/assets/${computerMove}.png"> Computer`;
+  document.querySelector('.moves').innerHTML = ` You <img title="Your-move" class="move-icon" src="assets/${playerMove}.png">  <img title="Computer-move"   class="move-icon" src="assets/${computerMove}.png"> Computer`;
   document.querySelector('.score').innerHTML = `Wins: ${score.wins} Losses: ${score.losses}  Ties: ${score.ties}`;
+  console.log(playGame, playerMove);
 }
 
 // Reset the score object, clear localStorage, and update UI with reset messages
@@ -60,7 +61,7 @@ function reset() {
   score.losses = 0;
   score.ties = 0;
   localStorage.removeItem('score');
-  document.querySelector('.result').innerHTML = 'result has been reset';
-  document.querySelector('.moves').innerHTML = 'moves has not been detected';
-  document.querySelector('.score').innerHTML = 'score has been reset';
+  document.querySelector('.result').innerHTML = 'Let\'s play again';
+  document.querySelector('.moves').innerHTML = ` You <img title="Your-move" class="move-icon" src="assets/question-mark.png">  <img title="Computer-move" class="move-icon" src="assets/question-mark.png"> Computer`;
+  document.querySelector('.score').innerHTML = `Wins: ${score.wins} Losses: ${score.losses}  Ties: ${score.ties}`;
 }

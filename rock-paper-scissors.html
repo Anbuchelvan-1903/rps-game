@@ -12,24 +12,25 @@
 </head>
 
 <body>
-  <h1>Rock Paper Scissors</h1>
   <div class="container">
+    <h1>Rock Paper Scissors</h1>
     <p class="result style-p"></p>
     <p class="moves style-p "></p>
     <p class="score style-p"></p>
     <div class="action">
-      <button onclick="playGame('rock')"><img class="action-icon" src="assets/rock.png"></button>
+      <button title="Rock" onclick="playGame('rock')"><img class="action-icon" src="assets/rock.png"></button>
 
-      <button onclick="playGame('paper')"><img class="action-icon" src="assets/paper.png"></button>
+      <button title="Paper" onclick="playGame('paper')"><img class="action-icon" src="assets/paper.png"></button>
 
-      <button onclick="playGame('scissors')"><img class="action-icon" src="assets/scissors.png"></button>
+      <button title="Scissors" onclick="playGame('scissors')"><img class="action-icon"
+          src="assets/scissors.png"></button>
     </div>
 
-   
-    <button class="reset-btn" onclick="reset()">Reset</button>
-    
+
+    <button title="Reset" class="reset-btn" onclick="reset()">Reset</button>
+
   </div>
-   
+
 
 
   <script src="rock-paper-scissors.js"></script>

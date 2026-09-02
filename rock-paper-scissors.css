@@ -6,80 +6,114 @@
 
 body {
   min-height: 100vh;
-  background-color: hsl(0, 0%, 10%);
+  background: linear-gradient(135deg, skyblue, midnightblue, skyblue);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-}
-h1{
-  font-size: 50px;
-  color: white;
-  margin-bottom: 20px;
-  max-width: 500px;
+  padding: 20px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
+h1 {
+  font-size: 2rem;
+  color: hsl(180, 19%, 93%);
+  margin-bottom: 30px;
+  max-width: 500px;
+  text-align: center;
+  text-shadow: 0 0 20px hsla(180, 100%, 50%, 1);
+  font-weight: bold;
+}
 
 .container {
-  background: hsl(0, 0%, 40%);
-  box-shadow: 0px 0px 1000px 1px limegreen, 0px 0px 1000px 1px rgb(148, 7, 7) ,0px 0px 1000px 1px rgb(255, 255, 255) ;
-  border: 2px solid white;
-  backdrop-filter: 10px;
-  height: auto;
-  border-radius: 10px;
+  background: hsl(240, 64%, 27%);
+  box-shadow: 0 8px 32px hsla(180, 100%, 50%, 0.1), inset 0 0 30px hsla(180, 100%, 50%, 0.05);
+  border: 2px solid hsla(180, 100%, 50%, 0.5);
+  border-radius: 20px;
   width: 100%;
-  max-width: 500px;
-  padding: 30px;
+  max-width: 550px;
+  padding: 40px;
+  transition: all 0.2s ease;
+}
 
+.container:hover {
+  box-shadow: 0 12px 40px hsla(180, 100%, 50%, 0.2), inset 0 0 40px hsla(180, 100%, 50%, 0.08);
+  border-color: hsl(180, 100%, 50%);
 }
 
 .action-icon {
-  background-color: transparent;
   height: 60px;
-  border-radius: 50px;
+  pointer-events: none;
+  border-radius: 50%;
 }
 
 .action {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
 button {
-  background-color: hsl(0, 0%, 40%) ;
-  border: 2px solid hsl(0, 0%, 100%);
-  padding: 10px;
-  margin: 10px;
-  border-radius: 50% ;
-  color: white;
+  background: hsla(218, 74%, 29%, 0);
+  border: 2px solid hsl(180, 100%, 50%);
+  border-radius: 50%;
+  color: hsl(180, 100%, 50%);
+  font-size: 24px;
+  cursor: pointer;
+  width: 90px;
+  height: 90px;
+  font-weight: 600;
+  box-shadow: 0 0 20px hsla(180, 100%, 50%, 0.2);
+  transition: all 0.1s ease;
 }
-button:hover{
-  background-color:  hsl(0, 0%, 50%);
+
+button:hover {
+  background: hsl(240, 64%, 37%);
+  ;
+  box-shadow: 0 0 10px hsla(180, 100%, 50%, 0.5);
+  transform: scale(1.05);
+
+}
+
+button:active {
+  transform: scale(1);
 }
 
 .style-p {
-  border: 2px solid gray;
+  border: 2px solid hsl(180, 100%, 50%);
   padding: 20px;
-  margin: 10px auto;
-  color: white;
+  margin: 15px auto;
+  color: hsl(0, 0%, 100%);
   font-size: 20px;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 15px;
+  background: hsla(180, 100%, 50%, 0.05);
+  box-shadow: 0 0 15px hsla(180, 91%, 41%, 0.1);
+  font-weight: 500;
 }
 
 .move-icon {
   height: 50px;
   margin: 10px;
+  vertical-align: middle;
 }
+
 .reset-btn {
+  zoom: 0.6;
   width: 100%;
-  font-weight: bold;
-  font-size: 20px;
-  background: hsla(66, 100%, 45%, 0.801);
-  border-radius: 20px;
-  margin: 0px;
+  font-weight: 700;
+  font-size: 2rem;
+  background: linear-gradient(135deg, hsl(152, 100%, 50%) 0%, hsl(165, 100%, 40%) 100%);
+  color: hsl(231, 61%, 10%);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  box-shadow: 0 5px 20px hsla(152, 100%, 50%, 0.3);
 }
-.reset-btn:hover{
-  background: hsla(66, 100%, 50%, 0.801);
+
+.reset-btn:hover {
+  background: linear-gradient(135deg, hsl(152, 100%, 50%) 0%, hsl(165, 100%, 40%) 100%);
+  box-shadow: 0 8px 30px hsla(152, 100%, 50%, 0.5);
 }
