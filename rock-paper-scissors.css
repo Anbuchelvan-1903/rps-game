@@ -83,10 +83,10 @@ button:active {
 
 .style-p {
   border: 2px solid hsl(180, 100%, 50%);
-  padding: 20px;
+  padding: 20px 3px;
   margin: 15px auto;
   color: hsl(0, 0%, 100%);
-  font-size: 20px;
+  font-size:20px;
   text-align: center;
   border-radius: 15px;
   background: hsla(180, 100%, 50%, 0.05);
@@ -96,7 +96,7 @@ button:active {
 
 .move-icon {
   height: 50px;
-  margin: 10px;
+  margin: 5px;
   vertical-align: middle;
 }
 
@@ -116,4 +116,27 @@ button:active {
 .reset-btn:hover {
   background: linear-gradient(135deg, hsl(152, 100%, 50%) 0%, hsl(165, 100%, 40%) 100%);
   box-shadow: 0 8px 30px hsla(152, 100%, 50%, 0.5);
+}
+@media (max-width:430px) {
+  .action {
+    gap: 10px;
+  }
+
+  .action-icon {
+    height: 50px;
+  }
+
+  button {
+    width: 70px;
+    height: 70px;
+  }
+  .move-icon {
+  height: 40px;
+  margin: 1px;
+  vertical-align: middle;
+  }
+  p.style-p {
+    font-size: 16px;
+    padding: 15px 3px;
+  }
 }
