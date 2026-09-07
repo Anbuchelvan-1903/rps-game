@@ -5,6 +5,9 @@ const score = JSON.parse(localStorage.getItem('score')) || {
   ties: 0
 };
 
+
+
+
 // Initialize UI elements with default message
 document.querySelector('.result').innerHTML = 'Let\'s play ';
 document.querySelector('.moves').innerHTML = ` You <img title="Your-move" class="move-icon" src="assets/question-mark.png">  <img title="Computer-move" class="move-icon" src="assets/question-mark.png"> Computer`;
@@ -52,11 +55,16 @@ function playGame(playerMove) {
   document.querySelector('.result').innerHTML = result;
   document.querySelector('.moves').innerHTML = ` You <img title="Your-move" class="move-icon" src="assets/${playerMove}.png">  <img title="Computer-move"   class="move-icon" src="assets/${computerMove}.png"> Computer`;
   document.querySelector('.score').innerHTML = `Wins: ${score.wins} Losses: ${score.losses}  Ties: ${score.ties}`;
-  console.log(playGame, playerMove);
 }
 
 // Reset the score object, clear localStorage, and update UI with reset messages
+
+const resetBtn=document.querySelector('.reset-btn');
+resetBtn.addEventListener('click',()=>{ reset(); });
+
 function reset() {
+  
+  
   score.wins = 0;
   score.losses = 0;
   score.ties = 0;
@@ -64,4 +72,38 @@ function reset() {
   document.querySelector('.result').innerHTML = 'Let\'s play again';
   document.querySelector('.moves').innerHTML = ` You <img title="Your-move" class="move-icon" src="assets/question-mark.png">  <img title="Computer-move" class="move-icon" src="assets/question-mark.png"> Computer`;
   document.querySelector('.score').innerHTML = `Wins: ${score.wins} Losses: ${score.losses}  Ties: ${score.ties}`;
+
+  // Stop autoplay and restore the button to its default state.
+  clearInterval(intervalId);
+  isAutoplay = false;
+  autoPlayBtn.innerHTML='AutoPlay';
+  autoPlayBtn.style.background = 'hsl(165, 100%, 40%)';
+}
+
+
+// Toggle automatic gameplay, running a random move every second until stopped or reset.
+
+const autoPlayBtn=document.querySelector('.autoplay-btn');
+autoPlayBtn.addEventListener('click',()=>{ autoPlay(); });
+
+let isAutoplay=false;
+let intervalId;
+
+function autoPlay(){
+  autoPlayBtn.innerHTML='Stop AutoPlay';
+  autoPlayBtn.style.background = 'hsla(0, 100%, 50%, 0.75)';
+  if(!isAutoplay){
+      intervalId = setInterval(()=> {
+      let playerMove = randomMove();
+      playGame(playerMove);
+    },1000);
+    isAutoplay=true;
+  }
+  else{
+    autoPlayBtn.innerHTML='AutoPlay';
+    autoPlayBtn.style.background = 'hsl(165, 100%, 40%)';
+    clearInterval(intervalId);
+    isAutoplay=false;
+
+  }  
 }

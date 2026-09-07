@@ -15,6 +15,25 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 
+
+.container {
+  background: hsl(240, 64%, 27%);
+  box-shadow: 0 8px 32px hsla(180, 100%, 50%, 0.1), inset 0 0 30px hsla(180, 100%, 50%, 0.05);
+  border: 2px solid hsla(180, 100%, 50%, 0.5);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 40px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.container:hover {
+  box-shadow: 0 12px 40px hsla(180, 100%, 50%, 0.2), inset 0 0 40px hsla(180, 100%, 50%, 0.08);
+  border-color: hsl(180, 100%, 50%);
+}
+
 h1 {
   font-size: 2rem;
   color: hsl(180, 19%, 93%);
@@ -24,23 +43,18 @@ h1 {
   text-shadow: 0 0 20px hsla(180, 100%, 50%, 1);
   font-weight: bold;
 }
-
-.container {
-  background: hsl(240, 64%, 27%);
-  box-shadow: 0 8px 32px hsla(180, 100%, 50%, 0.1), inset 0 0 30px hsla(180, 100%, 50%, 0.05);
-  border: 2px solid hsla(180, 100%, 50%, 0.5);
-  border-radius: 20px;
-  width: 100%;
-  max-width: 550px;
-  padding: 40px;
-  transition: all 0.2s ease;
+.style-p {
+  border: 2px solid hsl(180, 100%, 50%);
+  padding: 20px 3px;
+  margin: 15px auto;
+  color: hsl(0, 0%, 100%);
+  font-size:20px;
+  text-align: center;
+  border-radius: 15px;
+  background: hsla(180, 100%, 50%, 0.05);
+  box-shadow: 0 0 15px hsla(180, 91%, 41%, 0.1);
+  font-weight: 500;
 }
-
-.container:hover {
-  box-shadow: 0 12px 40px hsla(180, 100%, 50%, 0.2), inset 0 0 40px hsla(180, 100%, 50%, 0.08);
-  border-color: hsl(180, 100%, 50%);
-}
-
 .action-icon {
   height: 60px;
   pointer-events: none;
@@ -71,7 +85,6 @@ button {
 
 button:hover {
   background: hsl(240, 64%, 37%);
-  ;
   box-shadow: 0 0 10px hsla(180, 100%, 50%, 0.5);
   transform: scale(1.05);
 
@@ -81,26 +94,18 @@ button:active {
   transform: scale(1);
 }
 
-.style-p {
-  border: 2px solid hsl(180, 100%, 50%);
-  padding: 20px 3px;
-  margin: 15px auto;
-  color: hsl(0, 0%, 100%);
-  font-size:20px;
-  text-align: center;
-  border-radius: 15px;
-  background: hsla(180, 100%, 50%, 0.05);
-  box-shadow: 0 0 15px hsla(180, 91%, 41%, 0.1);
-  font-weight: 500;
-}
 
 .move-icon {
   height: 50px;
   margin: 5px;
   vertical-align: middle;
 }
+.fn-btns{
+  display:flex;
+  column-gap:5px;
+}
 
-.reset-btn {
+.reset-btn,.autoplay-btn {
   zoom: 0.6;
   width: 100%;
   font-weight: 700;
@@ -111,13 +116,28 @@ button:active {
   cursor: pointer;
   transition: all 0.1s ease;
   box-shadow: 0 5px 20px hsla(152, 100%, 50%, 0.3);
+  margin:5px;
 }
 
-.reset-btn:hover {
+.reset-btn:hover ,
+.autoplay-btn:hover {
   background: linear-gradient(135deg, hsl(152, 100%, 50%) 0%, hsl(165, 100%, 40%) 100%);
   box-shadow: 0 8px 30px hsla(152, 100%, 50%, 0.5);
 }
 @media (max-width:430px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 20px 12px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
   .action {
     gap: 10px;
   }
@@ -129,6 +149,12 @@ button:active {
   button {
     width: 70px;
     height: 70px;
+  }
+
+  .reset-btn ,.autoplay-btn{
+    zoom: 1;
+    font-size: 1.25rem;
+    height: 55px;
   }
   .move-icon {
   height: 40px;
